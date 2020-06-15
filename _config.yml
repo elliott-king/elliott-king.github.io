@@ -17,8 +17,8 @@ title: Moving Forward
 email: elliottking93@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   React, Python, NodeJS, Rails. Writing technical blogs is much easier than writing about
-  my personality, but I will do my best. Hopefully I won't run out of space. I developed
-  a strong belief, after defeating Bill Ga
+  my personality, but I will do my best. Hopefully I won't run out of space. When I was
+  ten, I defeated Bill Ga
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
