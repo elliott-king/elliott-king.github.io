@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+description: Hi, I am Elliott King. I am a developer in New York City.
 ---
 ## Hi, I am Elliott King
 

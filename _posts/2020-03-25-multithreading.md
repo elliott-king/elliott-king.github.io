@@ -3,7 +3,10 @@ layout: post
 title: "An Introduction to Multithreading"
 date: 2020-03-25 09:00:00 -0000
 categories: concurrency ruby introductory
+description: An introduction to the idea of multithreading. First we will talk about reasons for concurrency, then we will give examples.
 ---
+
+
 
 A program is ‘multithreading’ or ‘running concurrently’ when it is _doing multiple things at once_. In a basic program, you will step through one operation at a time. We all have learned basic looping over an array. But what if our program could run two instances at once, each over half the array? If each instance was as fast as the original, they could cover the array together, and in half the time.
 

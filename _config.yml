@@ -15,13 +15,15 @@
 # in the templates via {{ site.myvariable }}.
 title: Moving Forward
 email: elliottking93@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- 
   React, Python, NodeJS, Rails. Writing technical blogs is much easier than writing about
   my personality, but I will do my best. Hopefully I won't run out of space. When I was
   ten, I defeated Bill Ga
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: /:year/:month/:title/
+
+# baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://elliott-king.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: send_bitcoin
 github_username: elliott-king
 linkedin_username: elliottwking
@@ -31,6 +33,9 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

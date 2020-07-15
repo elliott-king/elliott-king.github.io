@@ -20,7 +20,11 @@ gem "github-pages", "~> 206", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-paginate"
+  gem 'jekyll-seo-tag'
 end
+gem 'jekyll-sitemap'
+gem "jekyll-seo"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.

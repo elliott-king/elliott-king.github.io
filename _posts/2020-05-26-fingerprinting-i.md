@@ -3,6 +3,7 @@ layout: post
 title: "Tracking Your Browser Fingerprint"
 date: 2020-05-26 12:00:00 -0000
 categories: security fingerprinting web-cookies privacy javascript
+description: If you want to understand privacy on the web, fingerprinting is the next step after cookies.
 ---
 
 Most of us understand that we are being tracked on the web, and most of us understand the basics of cookies. However, this is not the whole picture. While cookies track you as you traverse the web, fingerprints attempt to identify you without tracking. Here, I will attempt to give a basic overview of how fingerprints are created, and how to protect yourself from being identified.
