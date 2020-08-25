@@ -10,6 +10,7 @@ I am a developer in New York City. I have experience all across the board, from 
 
 ### Some side projects
 
+|[ATS Resume Checker](elliott-king.github.io/resume-compare/){:target="_blank"}| Checks a job description for keywords, and then checks your resume for you |
 |[Adversity Job Board](https://github.com/elliott-king/adversity-board-frontend){:target="_blank"} | A job board for when you want your applicants to REALLY work for it |
 |[Freedom](https://github.com/elliott-king/freedom-js-app){:target="_blank"}| An app for nearby free events|
 |[The Creepy Tracker](https://github.com/elliott-king/creepy-tracker){:target="_blank"}| A website that builds a simple fingerprint for your browser. If you are interested in browser fingerprinting, I also wrote an [introduction]({% post_url 2020-05-26-fingerprinting-i %})|
