@@ -1,0 +1,23 @@
+---
+---
+
+.project-image {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+.project-title {
+  p {
+    display: inline-block;
+    float: right;
+    margin-left: 1%;
+  }
+  h3 {
+    display: inline-block;
+  }
+
+  .project-icon {
+    height: 1.5em;
+  }
+}
