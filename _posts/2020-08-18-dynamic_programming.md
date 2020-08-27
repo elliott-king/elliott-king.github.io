@@ -21,7 +21,7 @@ def fibonacci(count):
     return fibonacci(count - 1) + fibonacci(count - 2)
 ```
 This simple example will completely balloon out of control as `count` increases. Let's look at the recursive calls for `fibonacci(4)`:
-![Tree for fibonacci on the number 4](/assets/images/fib_tree.png)
+![Tree for fibonacci on the number 4](/assets/images/blogs/fib_tree.png)
 Each node has two children, and then each of those children will also have two children. The runtime for this method is a whopping `O(2^n)`.
 
 Now let's implement fibonacci, but whenever we calculate a value, we save it to memory.
@@ -41,7 +41,7 @@ def fibonacci(count, memo):
 ```
 This function could be less than six lines, but hopefully you will find it more understandable this way. If we look at the tree above, it will be cut down quite a bit. We will only have to calculate a value the first time it comes up.
 
-![Streamlined tree for fibonacci on the number 4](/assets/images/fib_tree_2.png)
+![Streamlined tree for fibonacci on the number 4](/assets/images/blogs/fib_tree_2.png)
 
 This brings our time complexity down to a handy `O(n)`, because we only have to calculate once for each value.
 

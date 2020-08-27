@@ -13,13 +13,13 @@ A fingerprint does _not_ necessarily use cookies. In fact, fingerprinting exists
 
 Let's start simple. Your `user-agent` header is present in every request. For example, in Chrome, mine is: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36`. In Firefox, mine is: `Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0`. Notice that for each value, there is also a version number. Thus, you can break your users down by their browser and version number. There are even more headers that will be sent with each request (shown are my Firefox values):
 
-| ![My Firefox headers](/assets/images/firefox_headers.png "Firefox headers") |
+| ![My Firefox headers](/assets/images/blogs/firefox_headers.png "Firefox headers") |
 |:--:|
 | *Some headers in Firefox* |
 
 Much like describing a person, the more information you get, the more likely you are to uniquely identify your visitors. You can first put people into broad categories: what color is their hair? However, the more categories you add (height, weight, skin tone, shoe size, age, city they live in), the more likely that you are describing a unique individual.
 
-| ![Blondes, brunettes, or redheads?](/assets/images/matrix_code.jpeg "Blondes, brunettes, or redheads?") |
+| ![Blondes, brunettes, or redheads?](/assets/images/blogs/matrix_code.jpeg "Blondes, brunettes, or redheads?") |
 |:--:|
 | *Blondes, brunettes, or redheads?* |
 
@@ -27,7 +27,7 @@ Much like describing a person, the more information you get, the more likely you
 If you check your browser headers, you will notice that there are only a few. Additionally, most of these aren't very descriptive. To get more information about your browser environment, we can use Javascript. To correctly render the page, Javascript and CSS need to know many things about your browser environment. For example, we can get the screen resolution (`screen.width`, `screen.height`), we can get your time zone (`new Date().getTimezoneOffset()`), as well as more complicated things. At this point, the only real limit is creativity. 
 
 
-| ![Some JS fingerprint values](/assets/images/js_fingerprint.png "Some JS fingerprint values") |
+| ![Some JS fingerprint values](/assets/images/blogs/js_fingerprint.png "Some JS fingerprint values") |
 |:--:|
 | *Some values that JS can access* |
 
@@ -82,7 +82,7 @@ Along a similar line, Firefox has an in-beta anti-fingerprinting tool, and preve
 For mobile, iPhone is much better than Android (unsurprisingly). However, the majority of data I have on mobile browsers is ~10 years old, and therefore difficult to be sure about.
 
 
-| ![Chrome logo](/assets/images/chrome_logo.png "Chrome logo") |
+| ![Chrome logo](/assets/images/blogs/chrome_logo.png "Chrome logo") |
 |:--:|
 | *I don’t recommend using the browser made by the advertising company* |
 

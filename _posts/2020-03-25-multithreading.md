@@ -43,7 +43,7 @@ Consider an online game. In a game, there are several things happening at once:
   - You are sending data to the server (your actions in-game)
   - You are receiving from the server (other people's actions in-game)
 
-| ![An example of an online game](/assets/images/multithreading_image.jpeg "An online game") |
+| ![An example of an online game](/assets/images/blogs/multithreading_image.jpeg "An online game") |
 |:--:|
 | *Even if you lose connection, you should still be able to fish* |
 
@@ -131,7 +131,7 @@ The ruby docs has an [even more simple example](https://www.tutorialspoint.com/r
 
 [wikipedia](https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading)
 
-[OWASP](https://www.owasp.org/images/8/8e/OWASP_NZDay_2011_BrettMoore_ConcurrencyVulnerabilities.pdf)
+[OWASP](https://www.owasp.org/images/blogs/8/8e/OWASP_NZDay_2011_BrettMoore_ConcurrencyVulnerabilities.pdf)
 
 [vogella](https://www.vogella.com/tutorials/JavaConcurrency/article.html#concurrency-issues)
 

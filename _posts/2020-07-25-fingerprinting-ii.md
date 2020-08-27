@@ -8,7 +8,7 @@ description: An exploration of some math to determine the uniqueness of a browse
 
 In my [previous post]({% post_url 2020-05-26-fingerprinting-i %}), I wrote about browser fingerprinting in a general way. This is an exploration of the math involved with determining _uniqueness_ of a fingerprint. I initially took notes while reading [Panopticlick's excellent paper](https://panopticlick.eff.org/static/browser-uniqueness.pdf), and this is the result of that. Feel free to ignore this if you don't want a deep dive.
 
-![Yes, there will be math](/assets/images/mathematical.gif)
+![Yes, there will be math](/assets/images/blogs/mathematical.gif)
 
 In a fingerprint, some values hold more information than others. Let's take a look at what we care about in a fingerprint.
 
@@ -38,20 +38,20 @@ We will measure surprisal in bits. Computers measure everything with bits (thoug
 
 > Suppose that we have a browser fingerprinting algorithm F(·), such that when new browser installations x come into being, the outputs of F(x) upon them follow a discrete probability density function P(fn), n∈[0,1, .., N]. Recall that the “self-information” or “surprisal” of a particular output from the algorithm is given by:
 
-| ![Surprisal of a browser fingerprinting algorithm](/assets/images/surprisal_fn.png "Surprisal Function") |
+| ![Surprisal of a browser fingerprinting algorithm](/assets/images/blogs/surprisal_fn.png "Surprisal Function") |
 |:--:|
 | *Equation for Surprisal/Information Content* |
 
 
 The surprisal function looks a bit weird (with a negative sign). However, remember that probabilities are <= 1. Therefore, the log of a probability will be negative, so surprisal is >= 0. The slope steepens as X approaches zero (from the right), increasing towards infinity as it does. If the probability of the function is `P(f) = 1/2`, then the surprisal will equal `1`. If `P(f) = 1/4`, `I(f) = 2`, if `P(f) = 1/8`, `I(f) = 3`, and so on. 
 
-| ![Surprisal graphed](/assets/images/surprisal_fn_graphed.png "Surprisal graphed") |
+| ![Surprisal graphed](/assets/images/blogs/surprisal_fn_graphed.png "Surprisal graphed") |
 |:--:|
 | *For our purposes, we only care about the values between 0 and 1* |
 
 The paper states that ~84% of the browsers had unique fingerprints. There were a total of 470,161 samples taken. Let's say that each _unique_ instance has probability `P(f) ~ 1/470161`, and therefore has ~ 19 bits of surprisal.
 
-| ![Anonymity set sizes](/assets/images/anonymity_set.png) | 
+| ![Anonymity set sizes](/assets/images/blogs/anonymity_set.png) | 
 |:--:| 
 | *Taken from the Panopticlick paper: most browsers are uniquely identified* |
 
@@ -70,7 +70,7 @@ With 19 bits of surprisal, these unique fingerprints communicate a *lot* of info
 ## Surprisal of Individual Fingerprint Features
 We took a look at some examples of surprisal for an entire fingerprint, now let's take a look at surprisal for some of the pieces that make up the fingerprint. The paper does not give all of the data here, but they do give the _entropy_ for many of the values.
 
-| ![Entropy](/assets/images/entropy_fn.png "Entropy Function") |
+| ![Entropy](/assets/images/blogs/entropy_fn.png "Entropy Function") |
 |:--:|
 | *Entropy is just the average of the surprisals* |
 
