@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Uploading Files to Amazon S3 With a Rails API Backend and Javascript Frontend"
-date: 2020-08-31 12:00:00 -0000
+date: 2020-09-14 12:00:00 -0000
 categories: javascript AWS s3 rails ruby heroku
 description: An in-depth guide of how to programmatically integrate S3, Rails, and Javascript. Some setup is focused on Heroku, but this can be used for any Rails API backend.
 ---
@@ -13,7 +13,7 @@ For this guide, I had a Rails API app in one working directory, and a React app 
 
 ## Background
 
-We will be uploading the file _straight from the frontend_. One advantage of this is that it saves us on large requests. If we uploaded to the backend, then had the backend send it to S3, that will be two instances of a potentially large request. Another advantage is because of Heroku's setup: Heroku has an 'ephemeral filesystem.' Your files may remain on the system briefly, but they will always disappear on a system cycle. You _can_ try to upload files to Heroku then immediately upload them to S3. However, if the filesystem cycles in that time, you will upload an incomplete file. This is less relevant for smaller files, but we will play it safe for the purposes of this guide. 
+We will be uploading the file _straight from the frontend_. One advantage of this is that it saves us on large requests. If we uploaded to the backend, then had the backend send it to S3, that will be two instances of a potentially large request. Another advantage is because of Heroku's setup: Heroku has an "ephemeral filesystem." Your files may remain on the system briefly, but they will always disappear on a system cycle. You _can_ try to upload files to Heroku then immediately upload them to S3. However, if the filesystem cycles in that time, you will upload an incomplete file. This is less relevant for smaller files, but we will play it safe for the purposes of this guide. 
 
 Our backend will serve two roles: it will save metadata about the file, and handle all of the authentication steps that S3 requires. It will _never_ touch the actual files.
 
@@ -31,7 +31,8 @@ The flow will look like this:
 
 First, we will set up the S3 resources we want. Create two S3 buckets, prod and dev. You can let everything be default, but take note of the `bucket region`. You will need that later.
 
-!['New Bucket' screen in S3](/assets/images/s3_heroku_rails/new_bucket.png)
+|!["New Bucket" screen in S3](/assets/images/s3_heroku_rails/new_bucket.png)|
+| _What you see in S3 when making a new bucket._ |
 
 Next, we will set up Cross-Origin Resource Sharing (CORS). This will allow you to make POST & PUT requests to your bucket. Go into each bucket, `Permissions` -> `CORS Configuration`. For now, we will just use a default config that allows everything. We will restrict it later.
 
@@ -50,11 +51,13 @@ Next, we will set up Cross-Origin Resource Sharing (CORS). This will allow you t
 
 Next, we will create some security credentials to allow our backend to do fancy things with our bucket. Click the dropdown with your account name, and select `My Security Credentials`. This will take you to AWS IAM.
 
-![Location of 'My Security Credentials'](/assets/images/s3_heroku_rails/security_credentials_link.png)
+|![Location of "My Security Credentials"](/assets/images/s3_heroku_rails/security_credentials_link.png)|
+| _Accessing "My Security Credentials"_ |
 
 Once in the Identity and Access Management console, you should go to the access keys section, and create a new access key.
 
-![Location of access keys](/assets/images/s3_heroku_rails/access_key_button.png)
+|![Location of access keys](/assets/images/s3_heroku_rails/access_key_button.png)|
+| _Location of AWS access keys_ |
 
 Here, it will create a key for you. It will _never_ show you the secret again, so make sure you save these values in a file on your computer.
 
@@ -132,19 +135,22 @@ Make sure that the model __does not__ have a corresponding column in its table. 
 
 ### Direct Upload Controller
 
-Next we will create a controller to handle the authentication with S3 through Active Storage. This controller will expect a POST request, and will return an object that includes a signed url for the frontend to PUT to. Run `rails g controller direct_upload` to create this file. Additionally, add a route to `routes.rb`: `post '/presigned_url', to: 'direct_upload#create'`.
+Next we will create a controller to handle the authentication with S3 through Active Storage. This controller will expect a POST request, and will return an object that includes a signed url for the frontend to PUT to. Run `rails g controller direct_upload` to create this file. Additionally, add a route to `routes.rb`: 
+```ruby
+post '/presigned_url', to: 'direct_upload#create'
+```
 
-The contents of the file can be found [here](https://gist.github.com/elliott-king/12bc6c9ff9a69b5f04d74ebb263ba702){:target="_blank"}. 
+The contents of the `direct_upload_controller.rb` file can be found [here](https://gist.github.com/elliott-king/12bc6c9ff9a69b5f04d74ebb263ba702){:target="_blank"}. 
 
 The actual magic is handled by the `ActiveStorage::Blob.create_before_direct_upload!` function. Everything else just formats the input or output a little bit. Take a look at `blob_params`; our frontend will be responsible for determining those.
 
 ### Testing
 At this point, it might be useful to verify that the endpoint is working. You can test this functionality with something like curl or Postman. I used Postman.
 
-Firstly, you will need the POST request to your `direct_upload#create` endpoint. 
+Run your local server with `rails s`, then you can test your `direct_upload#create` endpoint by sending a POST request. There are a few things you will need: 
  - On a Unix machine, you can get the size of a file using `ls -l`. 
  - If you have a different type of file, make sure to change the `content_type` value. 
- - S3 also expects a checksum, so that it can verify that it received an uncorrupted file. This should be the __MD5__ hash of the file, __encoded__ in base64. You can get this with `openssl md5 -binary filename | base64`. 
+ - S3 also expects a "checksum", so that it can verify that it received an uncorrupted file. This should be the __MD5__ hash of the file, __encoded__ in base64. You can get this by running `openssl md5 -binary filename | base64`. 
 
 Your POST request to `/presigned_url` might look like this:
 
@@ -177,29 +183,34 @@ The response should have a pre-signed URL and an id:
 }
 ```
 
-The parameters should include (as of 8/28/2020):
-- X-Amz-Algorithm
-- X-Amz-Credential
-- X-Amz-Date
-- X-Amz-Expires
-- X-Amz-SignedHeaders
-- X-Amz-Signature
+The response `direct_upload.url` should have several parameters attached to it. Don't worry too much about it; if there was something wrong you would just get an error.
 
-Your direct upload now has an expiration of 10 minutes. Once this looks correct, we use the `direct_upload` object to make a PUT request to S3. Use the same url, and make sure you include the headers. The body of the request will be the file you are looking to include.
+| X-Amz-Algorithm |
+| X-Amz-Credential |
+| X-Amz-Date |
+| X-Amz-Expires |
+| X-Amz-SignedHeaders |
+| X-Amz-Signature |
 
-![Postman PUT to S3](/assets/images/s3_heroku_rails/put_to_s3.png)
+Your direct upload now has an expiration of 10 minutes. If this looks correct, we can use the `direct_upload` object to make a PUT request to S3. Use the same url, and _make sure you include the headers_. The body of the request will be the file you are looking to include.
 
-You should get a simple empty response with a code of 200. If you go to the S3 bucket in the AWS console, you should see the folder and the file. __Note__ that you can't actually view the file (you can only view its metadata). If you try to click the 'Object URL', it will tell you __Access Denied__. This is okay! We don't have permission to read the file. Earlier, in my `user.rb` model, I put a helper function that uses Active Storage to get a public URL. We will take a look at that in a bit.
+|![Postman PUT to S3](/assets/images/s3_heroku_rails/put_to_s3.png)|
+| _What the PUT looks like in Postman. Headers not shown._|
+
+You should get a simple empty response with a code of 200. If you go to the S3 bucket in the AWS console, you should see the folder and the file. __Note__ that you can't actually view the file (you can only view its metadata). If you try to click the "Object URL", it will tell you __Access Denied__. This is okay! We don't have permission to read the file. Earlier, in my `user.rb` model, I put a helper function that uses Active Storage to get a public URL. We will take a look at that in a bit.
+
+| ![AWS S3 Successfully Uploaded File](/assets/images/s3_heroku_rails/uploaded_file.png) |
+| _The uploaded file_ |
 
 ### User Controller
 
 If you recall our flow:
 1. The frontend sends a request to the server for an authorized url to upload to.
-2. ~~The server (using Active Storage) creates an authorized url for S3, then passes that back to the frontend.~~ Done.
+2. ~~The server (using Active Storage) creates an authorized url for S3, then passes that back to the frontend.~~ __Done.__
 3. The frontend uploads the file to S3 using the authorized url.
 4. The frontend confirms the upload, and makes a request to the backend to create an object that tracks the needed metadata.
 
-We are still working on our backend, and testing things with curl/Postman. Let's build the functionality to create a new object using the uploaded file. For example, I am using resume files to create new users for my job board. For a new user creation, it expects a `first_name`, `last_name`, and `email`. The resume will take the form of `signed_blob_id` we saw earlier. Active Storage only needs this ID to connect the file to your model instance. Here is what my `users_controller#create` looks like, and I also made a [gist](https://gist.github.com/elliott-king/f88d207f351017b75ad924b1251d71d2){:target="_blank"}:
+The backend still needs one bit of functionality. It needs to be able to create a new record using the uploaded file. For example, I am using resume files, and attaching them to users. For a new user creation, it expects a `first_name`, `last_name`, and `email`. The resume will take the form of `signed_blob_id` we saw earlier. Active Storage only needs this ID to connect the file to your model instance. Here is what my `users_controller#create` looks like, and I also made a [gist](https://gist.github.com/elliott-king/f88d207f351017b75ad924b1251d71d2){:target="_blank"}:
 
 ```ruby
 def create
@@ -216,7 +227,9 @@ def user_params
 end
 ```
 
-Of course, your params may look different if your model is different. We can again test this with Postman or curl. Here is a json POST request that I would make to the `/users` endpoint:
+The biggest new thing is the `resume.attach` call. Also note that we are returning the json of the user, and including our created `resume_url` method. This is what allows us to view the resume. 
+
+Your params may look different if your model is different. We can again test this with Postman or curl. Here is a json POST request that I would make to the `/users` endpoint:
 
 ```json
 {
@@ -227,9 +240,10 @@ Of course, your params may look different if your model is different. We can aga
 }
 ```
 
-This is much like a normal user creation, except we call `attach` on the file ID that is passed with the request. The ID is from the response of our first request, the `blob_signed_id` field. You should get a response that represents the user, but has a `resume_url` field. You can follow this public url to see your file! This url comes from the `blob.service_url` we included in the `user.rb` model.
+This is much like a normal user creation, except we call `attach` on the file ID that is passed with the request. The ID is from the response of our first request, the `blob_signed_id` field. You should get a response that represents the user, but has a `resume_url` field. You can follow this public url to see your uploaded file! This url comes from the `blob.service_url` we included in the `user.rb` model.
 
-![Example of a created user](/assets/images/s3_heroku_rails/user_created.png)
+|![Example of a created user](/assets/images/s3_heroku_rails/user_created.png)|
+|_The response, containing the newly created user._|
 
 If this is all working, your backend is probably all set.
 
@@ -237,15 +251,26 @@ If this is all working, your backend is probably all set.
 
 Remember our overall request flow. If we only consider the requests that the frontend performs, it will look like this:
 1. Make POST request for signed url.
-2. Make PUT request to S3 to upload file.
+2. Make PUT request to S3 to upload the file.
 3. Make POST to `/users` to create new user.
 
 We have already tested all of this using curl/Postman. Now it just needs to be implemented on the frontend. I am also going to assume you know how to get a file into Javascript from a computer. `<input>` is the simplest method, but there are plenty of guides out there.
 
-The only difficult part of this is calculating the checksum of the file. This is a little weird to follow, and I had to guess-and-check my way through a bit of this. To start with, we will `npm install crypto-js`. Crypto JS is a cryptographic library for Javascript. Then, we need to read the file with `FileReader` to hash it. I will just show the code. [Here](https://gist.github.com/elliott-king/77cf0809c6abae892eb7c911692d87f4){:target="_blank"} is a link to the gist, as well.
+The only difficult part of this is calculating the checksum of the file. This is a little weird to follow, and I had to guess-and-check my way through a bit of this. To start with, we will `npm install crypto-js`. Crypto JS is a cryptographic library for Javascript. 
+
+-----------------------------------
+
+__Note:__ if you are using vanilla Javascript and can't use npm, [here](https://stackoverflow.com/questions/51005488/how-to-use-cryptojs-in-javascript) are some directions to import it with a CDN. You will need:
+- `rollups/md5.js`
+- `components/lib-typedarrays-min.js`
+- `components/enc-base64-min.js`
+
+-----------------------------------
+
+Then, we will read the file with `FileReader` before hashing it, according to the following code. [Here](https://gist.github.com/elliott-king/77cf0809c6abae892eb7c911692d87f4){:target="_blank"} is a link to the corresponding gist.
 
 ```javascript
-import CryptoJs from 'crypto-js'
+import CryptoJS from 'crypto-js'
 
 // Note that for larger files, you may want to hash them incrementally.
 // Taken from https://stackoverflow.com/questions/768268/
@@ -257,8 +282,8 @@ const md5FromFile = (file) => {
     const reader = new FileReader()
   
     reader.onload = (fileEvent) => {
-      let binary = CryptoJs.lib.WordArray.create(fileEvent.target.result)
-      const md5 = CryptoJs.MD5(binary)
+      let binary = CryptoJS.lib.WordArray.create(fileEvent.target.result)
+      const md5 = CryptoJS.MD5(binary)
       resolve(md5)
     }
     reader.onerror = () => {
@@ -272,7 +297,7 @@ const md5FromFile = (file) => {
 
 export const fileChecksum = async(file) => {
   const md5 = await md5FromFile(file)
-  const checksum = md5.toString(CryptoJs.enc.Base64)
+  const checksum = md5.toString(CryptoJS.enc.Base64)
   return checksum
 }
 ```
@@ -384,7 +409,7 @@ __Problems with server initialization__: make sure the names in your `.env` file
 
 __Error: missing host to link to__ for the first request. In my case, this meant I had not put `:amazon` as my Active Storage source in `development.rb`.
 
-__StackLevelTooDeep__ for last request. I had this issue when calling `users_controller#create` because I had not removed the 'resume' field from my schema. Make sure your database schema does not include the file. That should only be referenced in the model with `has_one_attached`.
+__StackLevelTooDeep__ for last request. I had this issue when calling `users_controller#create` because I had not removed the "resume" field from my schema. Make sure your database schema does not include the file. That should only be referenced in the model with `has_one_attached`.
 
 __AWS requests fail after changing CORS__: make sure there are no trailing slashes in your URL within the CORS XML.
 
