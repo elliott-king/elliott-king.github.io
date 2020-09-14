@@ -386,6 +386,7 @@ Make sure your prod app is using a different bucket from your development. This 
     <AllowedOrigin>https://myfrontend.herokuapp.com</AllowedOrigin>
     <AllowedMethod>POST</AllowedMethod>
     <AllowedMethod>PUT</AllowedMethod>
+    <AllowedMethod>GET</AllowedMethod>
     <AllowedHeader>*</AllowedHeader>
 </CORSRule>
 </CORSConfiguration>
