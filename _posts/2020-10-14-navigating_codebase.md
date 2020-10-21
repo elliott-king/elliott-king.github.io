@@ -19,8 +19,7 @@ __Find where constants are declared__: this is useful when a site is large and c
 
 __Sometimes things are created by a framework__, and are hard to find. For example, Rails will have a built-in connection between routes and controllers, but the `routes.rb` will not explicitly import the controllers. If there is a lot of work being done behind the scenes, this can be useful to connect things together.
 
-|![Trying to find the social.twitter source](/assets/images/navigating_codebase/search_twitter.png)|
-|_Trying to find the social.twitter source_|
+{% include image.html url="/assets/images/navigating_codebase/search_twitter.png" description="Trying to find the social.twitter source" %}
 
 `cmd-p`: jump to file. 
 
