@@ -10,7 +10,11 @@ layout: home
 
 ## Hi, I am Elliott King
 
-I am a developer in New York City. I have experience all across the board, from Ruby/Rails and React, to some machine learning with Python. I am currently looking for a full-stack position.
+I am a full-stack developer based in the US. I especially like the intersection of data and full-stack, and many of my projects reflect that. Data Science tickles the empirical part of my brain, but making projects that grow, walk, and run is my true passion.
+
+I am currently volunteering with the [Astoria Digital](https://astoria.digital/) NYC-based aid organization. They provide web development and technical support for local volunteer organizations.
+
+Reach out on [LinkedIn](https://www.linkedin.com/in/elliottwking/) or just [email me](mailto:elliottking93@gmail.com) if you are hiring for NYC or remote! I mostly work with Rails, Python, and JS, but I have dabbled in many technologies.
 
 ## Projects
 
@@ -25,9 +29,22 @@ I am a developer in New York City. I have experience all across the board, from 
   <p>[![github icon](/assets/icons/github.svg){: .project-icon}](https://github.com/elliott-king/resume-compare){:target="_blank"}</p>
 </div>
 
-![resume checker screenshot](/assets/images/project-screenshots/res-compare.png){: .project-image}
+<img class="project-image" src="/assets/images/project-screenshots/res-compare.png" alt="Resume Checker Screenshot">
 
-Checks a job description for keywords, and then checks your resume for you.
+Looks through your resume and job description for shared keywords.
+
+---
+
+<br>
+
+<div class="project-title">
+  <h3 class="project-name">[Bill Tracker](https://astoria-tech-bill-tracker-master.dev.shipyard.host/){:target="_blank"}</h3> 
+  <p>[![github icon](/assets/icons/github.svg){: .project-icon}](https://github.com/astoria-tech/bill-tracker){:target="_blank"}</p>
+</div>
+
+![adversity screenshot](/assets/images/project-screenshots/bill-tracker.png){: .project-image}
+
+Search through current NYS Senate bills. Collaboration for [Astoria Digital](https://astoria.digital/) volunteer organization.
 
 ---
 
