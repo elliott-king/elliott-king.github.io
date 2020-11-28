@@ -6,7 +6,7 @@ description: I am a developer in New York City. I have experience all across the
 layout: home
 ---
 
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/assets/styles/projects.css">
 
 ## Hi, I am Elliott King
 
