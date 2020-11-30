@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Exporting Multiple Docker Images Alongside Docker-Compose"
 date: 2020-10-07 12:00:00 -0000
 categories: docker docker-compose

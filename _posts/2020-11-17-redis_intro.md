@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "An Introduction to Redis for the Junior Developer"
 date: 2020-11-17 09:00:00 -0000
 categories: redis javascript ruby nosql docker

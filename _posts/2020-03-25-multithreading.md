@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "An Introduction to Multithreading"
 date: 2020-03-25 09:00:00 -0000
 categories: concurrency ruby introductory

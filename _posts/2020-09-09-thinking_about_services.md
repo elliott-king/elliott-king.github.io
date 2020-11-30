@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Thinking About Services"
 date: 2020-09-09 12:00:00 -0000
 categories: architecture REST API

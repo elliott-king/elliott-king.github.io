@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Improving your Website Preview Cards on LinkedIn"
 date: 2020-11-03 09:00:00 -0000
 categories: LinkedIn HTML OGP 

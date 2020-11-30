@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Debugging Medium Images"
 date: 2020-10-21 09:00:00 -0000
 categories: javascript medium API debugging

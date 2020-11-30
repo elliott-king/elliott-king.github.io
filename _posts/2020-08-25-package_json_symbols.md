@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "The Symbols In Your package.json File"
 date: 2020-08-25 12:00:00 -0000
 categories: nodejs javascript package-json

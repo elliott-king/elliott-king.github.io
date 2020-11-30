@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Preparing for Nontechnical Questions in a Tech Interview"
 date: 2020-11-11 09:00:00 -0000
 categories: Interviewing STAR 

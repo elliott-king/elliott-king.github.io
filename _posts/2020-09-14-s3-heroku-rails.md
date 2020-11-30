@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Uploading Files to Amazon S3 With a Rails API Backend and Javascript Frontend"
 date: 2020-09-14 12:00:00 -0000
 categories: javascript AWS s3 rails ruby heroku

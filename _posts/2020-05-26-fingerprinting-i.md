@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Tracking Your Browser Fingerprint"
 date: 2020-05-26 12:00:00 -0000
 categories: security fingerprinting web-cookies privacy javascript

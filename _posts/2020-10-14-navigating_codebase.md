@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Navigating an Unfamiliar Codebase (with Github & VSCode)"
 date: 2020-10-14 09:00:00 -0000
 categories: vscode tips git github

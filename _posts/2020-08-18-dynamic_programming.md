@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Dynamic Programming"
 date: 2020-08-18 09:00:00 -0000
 categories: algorithms python dynamic-programming

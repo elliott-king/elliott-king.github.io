@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Bridging Callbacks and Async/Await"
 date: 2020-09-23 12:00:00 -0000
 categories: javascript async

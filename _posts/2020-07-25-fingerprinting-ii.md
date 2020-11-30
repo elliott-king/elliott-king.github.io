@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Understanding Your Browser Fingerprint, Or, a Basic Introduction to Information Theory"
 date: 2020-07-25 12:00:00 -0000
 categories: security fingerprinting web-cookies privacy javascript

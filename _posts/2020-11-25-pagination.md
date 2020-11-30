@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Understanding API Pagination"
 date: 2020-11-25 09:00:00 -0000
 categories: python ruby API web_development

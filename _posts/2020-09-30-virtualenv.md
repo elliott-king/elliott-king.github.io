@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Python Virtual Environments and Beyond"
 date: 2020-09-30 09:00:00 -0000
 categories: python heroku
