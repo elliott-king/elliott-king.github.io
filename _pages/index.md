@@ -28,7 +28,7 @@ projects_row1:
     excerpt: "Search through current NYS Senate bills. Collaboration for [Astoria Digital](https://astoria.digital/) volunteer organization."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://astoria-tech-bill-tracker-master.dev.shipyard.host/"
+    url: "https://bills.astoria.digital/"
     github_url: "https://github.com/astoria-tech/bill-tracker"
   - image_path: assets/images/project-screenshots/adversity.png
     alt: "Adversity Job Board Screenshot"
