@@ -3,7 +3,7 @@ layout: single
 title: "Python Virtual Environments and Beyond"
 date: 2020-09-30 09:00:00 -0000
 categories: python heroku
-description: An overview of Python virtual environments.
+excerpt: An overview of Python virtual environments.
 ---
 
 When I was first learning Python, the concept of virtual environments seemed unnecessary to me. Why would I bother keeping track of a different set of libraries within my current directory? What is wrong with the global ones? It wasn't until I became a more mature programmer that I realized the usefulness.

@@ -3,7 +3,7 @@ layout: single
 title: "Exporting Multiple Docker Images Alongside Docker-Compose"
 date: 2020-10-07 12:00:00 -0000
 categories: docker docker-compose
-description: You can't export containers together in one larger container. You can, however, maintain the link between them with docker-compose.
+excerpt: You can't export containers together in one larger container. You can, however, maintain the link between them with docker-compose.
 ---
 
 It is possible to export a Docker container for use on another machine.

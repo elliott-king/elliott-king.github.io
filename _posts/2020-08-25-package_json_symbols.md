@@ -3,7 +3,7 @@ layout: single
 title: "The Symbols In Your package.json File"
 date: 2020-08-25 12:00:00 -0000
 categories: nodejs javascript package-json
-description: An explanation of the random symbols you will find in your package.json file.
+excerpt: An explanation of the random symbols you will find in your package.json file.
 ---
 I have often been confused by the symbols in the package.json file. If you are new to node.js, and you create a new app with `create-react-app` or some other framework, it generates a package.json file for you. I have always felt that most of the file is very clear, even if you are a newbie. "Name," "version," "dependencies," and "scripts," are all very clear descriptors. However, there are often symbols thrown around in the package dependencies, and it is not always clear what they mean.
 

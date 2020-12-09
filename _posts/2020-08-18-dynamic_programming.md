@@ -3,7 +3,7 @@ layout: single
 title: "Dynamic Programming"
 date: 2020-08-18 09:00:00 -0000
 categories: algorithms python dynamic-programming
-description: An introduction to dynamic programming. This is one of the final concepts for basic algorithms.
+excerpt: An introduction to dynamic programming. This is one of the final concepts for basic algorithms.
 ---
 
 Dynamic programming sounds very simple conceptually, but can quickly get complex.

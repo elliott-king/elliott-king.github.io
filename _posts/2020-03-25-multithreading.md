@@ -3,7 +3,7 @@ layout: single
 title: "An Introduction to Multithreading"
 date: 2020-03-25 09:00:00 -0000
 categories: concurrency ruby introductory
-description: An introduction to the idea of multithreading. First we will talk about reasons for concurrency, then we will give examples.
+excerpt: An introduction to the idea of multithreading. First we will talk about reasons for concurrency, then we will give examples.
 ---
 
 

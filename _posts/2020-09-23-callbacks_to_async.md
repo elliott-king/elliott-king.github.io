@@ -3,7 +3,7 @@ layout: single
 title: "Bridging Callbacks and Async/Await"
 date: 2020-09-23 12:00:00 -0000
 categories: javascript async
-description: How to use async/await with legacy functions.
+excerpt: How to use async/await with legacy functions.
 ---
 
 I imagine you will have some exposure to asynchronous logic in Javascript. A brief history: originally, JS only had callbacks, then they also implemented promises, and more recently we have seen async/await. However, you may still stumble upon old functionality that only allows callbacks.

@@ -3,7 +3,7 @@ layout: single
 title: "Thinking About Services"
 date: 2020-09-09 12:00:00 -0000
 categories: architecture REST API
-description: Thoughts about service-based architecture.
+excerpt: Thoughts about service-based architecture.
 ---
 
 |![Kitchenware](/assets/images/services/jaime-moag-oZC0wd6LANM-unsplash.jpg)|

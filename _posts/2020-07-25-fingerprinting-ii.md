@@ -3,7 +3,7 @@ layout: single
 title: "Understanding Your Browser Fingerprint, Or, a Basic Introduction to Information Theory"
 date: 2020-07-25 12:00:00 -0000
 categories: security fingerprinting web-cookies privacy javascript
-description: An exploration of some math to determine the uniqueness of a browser fingerprint.
+excerpt: An exploration of some math to determine the uniqueness of a browser fingerprint.
 ---
 
 In my [previous post]({% post_url 2020-05-26-fingerprinting-i %}), I wrote about browser fingerprinting in a general way. This is an exploration of the math involved with determining _uniqueness_ of a fingerprint. I initially took notes while reading [Panopticlick's excellent paper](https://panopticlick.eff.org/static/browser-uniqueness.pdf), and this is the result of that. Feel free to ignore this if you don't want a deep dive.
