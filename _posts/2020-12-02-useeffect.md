@@ -23,9 +23,9 @@ Each of these changes how `useEffect` is called. Remember that the hook accepts 
 useEffect(callback[, dependencies]);
 ```
 
-### When the component is first created
+### Only when the component is first created
 
-If we only want the `useEffect` contents to run on component creation, you should only pass in a callback, with no dependencies. For example, if we wanted to make a request on creation, and fill the state, it would look something like this:
+If you pass in an empty array, `useEffect()` will be called only on the initial component creation (like `componentDidMount` for the class component). For example, if we wanted to make a request on creation, and fill the state, it would look something like this:
 
 ```javascript
 const [contents, setContents] = useState([])
@@ -34,22 +34,27 @@ useEffect(() => {
   fetch(url)
     .then(res => res.json())
     .then(json => setContents(json))
+}, [])
+```
+
+This will populate the component, but only when it is first created.
+
+### Whenever the component is re-rendered
+
+If we want the `useEffect` contents to run on every render, you should only pass in a callback, with no dependencies. For example, if a user is composing a message, you could send a copy of the draft to the server, so it does not get lost.
+
+```javascript
+const [draft, updateDraft] = useState('')
+
+useEffect(() => {
+  fetch(url, {
+    method: 'POST',
+    body: draft,
+  })
 })
 ```
 
-Note that there is no second argument in this case. This will populate the component when it is created.
-
-### When the component is re-rendered
-
-This is a small modification to the above. If you pass in an empty array, it will be called on ever re-render. 
-
-```javascript
-const [renderCount, updateCount] = useState(0)
-
-useEffect(() => {
-  updateCount(renderCount + 1)
-}, [])
-```
+Note that there is no second argument in this case.
 
 ### When the component is destroyed
 
@@ -73,7 +78,7 @@ useEffect(() => {
     console.log("This is logged to console.");
   }, 5000);
   const cleanup = () => clearInterval(id)
-  return cleanup 
+  return cleanup
 }, []);
 ```
 
