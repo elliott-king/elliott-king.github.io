@@ -11,7 +11,7 @@ header:
   overlay_color: "#000"
   overlay_image: /assets/images/gradient.png
   # caption: "Gradient from [Coolers](https://coolors.co)"
-excerpt: "I am a full-stack developer based in the US. I enjoy the intersection of data science and full-stack."
+excerpt: "Full-stack is the intersection of hard problems and seeing your project grow into a living being."
 
 projects_row1:
   - image_path: assets/images/project-screenshots/res-compare.png
@@ -28,7 +28,6 @@ projects_row1:
     excerpt: "Search through current NYS Senate bills. Collaboration for [Astoria Digital](https://astoria.digital/) volunteer organization."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://bills.astoria.digital/"
     github_url: "https://github.com/astoria-tech/bill-tracker"
   - image_path: assets/images/project-screenshots/adversity.png
     alt: "Adversity Job Board Screenshot"
@@ -36,7 +35,6 @@ projects_row1:
     excerpt: "A job board for when you want your applicants to REALLY work for it."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://adversity.herokuapp.com/"
     github_url: "https://github.com/elliott-king/adversity-board-frontend"
     youtube_url: "https://www.youtube.com/watch?v=5OK3An-Jqes"
 
@@ -47,7 +45,6 @@ projects_row2:
     excerpt: "A website that builds a simple fingerprint for your browser. If you are interested in browser fingerprinting, I also wrote an [introduction](https://elliott-king.github.io/2020/05/fingerprinting-i/)."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://creepy-tracker.herokuapp.com/"
     github_url: "https://github.com/elliott-king/freedom-js-app"
   - image_path: assets/images/project-screenshots/freedom.png
     alt: "Freedom JS"
@@ -55,7 +52,6 @@ projects_row2:
     excerpt: "An app for nearby free events."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://www.freedom.cannibaltaylor.com/"
     github_url: "https://github.com/elliott-king/creepy-tracker"
   - image_path: assets/images/project-screenshots/drawful.png
     alt: "Drawful 1.5"
@@ -63,7 +59,6 @@ projects_row2:
     excerpt: "A fun little clone of Drawful. You can play with up to six players."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://elliott-king.github.io/drawful-1.5/frontend/"
     github_url: "https://github.com/elliott-king/drawful-1.5"
 
 projects_row3:
@@ -73,7 +68,6 @@ projects_row3:
     excerpt: "Use natural language processing to learn who is 'wavy' - according to [reddit.com/r/kanye](https://www.reddit.com/r/kanye)."
     btn_label: "Visit"
     btn_class: "btn--primary"
-    url: "https://realtime.cannibaltaylor.com/"
     github_url: "https://github.com/elliott-king/kanye_analyzer"
 ---
 
