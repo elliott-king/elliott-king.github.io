@@ -96,9 +96,7 @@ author:
   name             : "Elliott King"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : >- 
-    React, Python, NodeJS, Rails. Writing technical blogs is much easier than writing about
-    my personality, but I will do my best. I hope I don't run out of space for my bio. When I was
-    ten, I defeated Bill Ga
+    React, Python, NodeJS, and the fun technology that comes with full-stack. I hope I don't run out of space for my bio. When I was ten, I defeated Bill Gat
   location         : "New York City"
   email            : "elliottking93@gmail.com"
   links:
@@ -124,9 +122,9 @@ footer:
     # - label: "Email"
     #   icon: "fas fa-fw fa-envelope-square"
     #   url: "maielliottking93@gmail.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/send_bitcoin"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-twitter-square"
+    #   url: "https://twitter.com/send_bitcoin"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/elliott-king"
