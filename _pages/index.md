@@ -2,7 +2,7 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-description: I am a developer in New York City. I have experience all across the board, from Ruby/Rails and React, to some machine learning.
+description: I am a developer in New York City. I have experience all across the board, from Python and React, to some machine learning.
 layout: splash
 # author_profile: true
 permalink: /
@@ -10,8 +10,8 @@ permalink: /
 header:
   overlay_color: "#000"
   overlay_image: /assets/images/gradient.png
-  # caption: "Gradient from [Coolers](https://coolors.co)"
-excerpt: "Full-stack is the intersection of hard problems and seeing your project grow into a living being."
+  # caption: "Gradient from [Coolers](https://coolors.co/gradient-maker)"
+excerpt: "Always forward"
 
 projects_row1:
   - image_path: assets/images/project-screenshots/res-compare.png
@@ -75,11 +75,9 @@ projects_row3:
 
 ## Hi, I'm Elliott King
 
-Data Science tickles the empirical part of my brain, but making projects that grow, walk, and run is my true passion.
+This space exists for my personal blog and portfolio. I'm currently working on re-organizing this site, but the TL;DR is I'm a full-stack dev in NYC.
 
-I am currently volunteering with the [Astoria Digital](https://astoria.digital/) NYC-based aid organization. They provide web development and technical support for local volunteer organizations.
-
-Reach out on [LinkedIn](https://www.linkedin.com/in/elliottwking/) or just [email me](mailto:elliottking93@gmail.com) if you are hiring for NYC or remote! I mostly work with Rails, Python, and JS, but I have dabbled in many technologies.
+Reach out on [LinkedIn](https://www.linkedin.com/in/elliottwking/) or just [email me](mailto:elliottking93@gmail.com) if you are hiring for NYC or remote! I mostly work with Python and JS/TS, but I have dabbled in many technologies.
 
 ## Projects
 {% include project_row id="projects_row1" %}

@@ -13,6 +13,8 @@ excerpt: An interesting thing happens when you follow the official Amplify guide
 |:--:|
 | *Allegory of Failure during the Pilgrimage of Life, by Monogrammist HSR, 1519* |
 
+A few months ago, I was adapting an official guide for an AWS service. Specifically, [integrating OpenSearch with Amplify](https://docs.amplify.aws/react/build-a-backend/data/custom-business-logic/search-and-aggregate-queries/). I worked through the guide, and modified and debugged it for my own purposes. A few weeks later, I received an AWS bill for over $1200, and almost had a heart attack. I hadn't selected the most expensive OS instance type. I hadn't even used it much at all. I had worked with Amplify & OpenSearch back in 2020 (back when it still was ElasticSearch). It's pricey for personal use, usually around $50 per month, but not $1200.
+
 > **Elliott**
 >
 > I think the [OpenSearch] domains should have only been billed for part of the month, for one machine.
@@ -30,8 +32,6 @@ excerpt: An interesting thing happens when you follow the official Amplify guide
 > After a detailed review of your case and account, I'm happy to inform you that we've processed a billing adjustment for the unexpected charges as a one time courtesy.
 >
 > [...] Regarding your follow-up notes, I have reached out to the concerned team to investigate it further [...]
-
-A few months ago, I was adapting an official guide for an AWS service. Specifically, [integrating OpenSearch with Amplify](https://docs.amplify.aws/react/build-a-backend/data/custom-business-logic/search-and-aggregate-queries/). I worked through the guide, and modified and debugged it for my own purposes. A few weeks later, I received an AWS bill for over $1200, and almost had a heart attack. I hadn't selected the most expensive OS instance type. I hadn't even used it much at all. I had worked with Amplify & OpenSearch back in 2020 (back when it still was ElasticSearch). It's pricey for personal use, usually around $50 per month, but not crazy.
 
 I opened a support ticket with AWS. I narrowed down what happened. There were a few behaviors with Amplify + OpenSearch that I felt were oversights. The response from AWS was prompt. They had me set up a budget alert and gave me service credit for both OpenSearch and its storage. Kudos! Even if you are not using Amplify/OpenSearch, I recommend getting familiar with AWS [budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/). They predict future spend, for a service or for AWS as a whole, and can send you alerts if you are projected to break them. However, I was terrified from that experience, and set the project, and Amplify, aside.
 
