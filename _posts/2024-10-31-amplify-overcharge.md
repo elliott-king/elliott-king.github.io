@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Following the Official AWS Amplify Guide and Getting Charged $1,100"
+title: "I Followed the Official AWS Amplify Guide and was Charged $1,100"
 date: 2024-10-31 09:00:00 -0000
 categories: aws typescript
 excerpt: An interesting thing happens when you follow the official Amplify guide.
