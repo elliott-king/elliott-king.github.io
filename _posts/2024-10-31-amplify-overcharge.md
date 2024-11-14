@@ -8,6 +8,8 @@ excerpt: An interesting thing happens when you follow the official Amplify guide
 
 <link rel="stylesheet" href="/assets/styles/alerts.css">
 
+**UPDATE:** *The AWS guide is now updated. They didn't update it when I first raised the issue three months ago, but credit where it's due, it looks like they started on the docs PR before I released this post.*
+
 
 | ![Allegory of Failure during the Pilgrimage of Life, by Monogrammist HSR, 1519](/assets/images/amplify_overcharge/allegory_failure.jpg "Allegory of Failure during the Pilgrimage of Life, by Monogrammist HSR, 1519") |
 |:--:|
@@ -70,7 +72,7 @@ All of this is written in Typescript/Javascript, and lives in your repo with the
 
 At this point, we have a DynamoDB database, one OpenSearch service, one OSIS pipeline, and various other things (like IAM roles).
 
-{% include alert.html content="As an aside, this setup creates mid-price `r5.large.search` OpenSearch instances by default. Nowhere in the boilerplate code or guide is this mentioned. That will run you $134 per month at minimum." %}
+{% include warning.html content="As an aside, this setup creates mid-price `r5.large.search` OpenSearch instances by default. Nowhere in the boilerplate code or guide is this mentioned. That will run you $134 per month at minimum." %}
 
 | ![t3.small.search instance pricing: $0.036 per hour](/assets/images/amplify_overcharge/small_pricing.png "t3.small.search instance pricing: $0.036 per hour") |
 |:--:|
