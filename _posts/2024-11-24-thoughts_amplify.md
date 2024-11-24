@@ -73,7 +73,7 @@ I then added variable to the two blocks that need it. The second block previousl
 Thanks, a readable error! Why is the error output less useful if you use the `logGroup.logGroupName` style...? That meant this was a problem both with the documentation, and ALSO the error output.
 
 ## The Intro OpenSearch Guide Set Me up for A $1200 Monthly Charge (fixed after a while)
-I mentioned this in a [previous blog post](./2024-10-31-amplify-overcharge.md), but just following the Amplify + OpenSearch introductory guide opened me up to being overcharged like crazy. However, as of publishing these notes, I can say that they have improved the guide! I'm not over the moon, because it took them several months, but at least it shows progress.
+I mentioned this in a [previous blog post]({% post_url 2024-10-31-amplify-overcharge %}), but just following the Amplify + OpenSearch introductory guide opened me up to being overcharged like crazy. However, as of publishing these notes, I can say that they have improved the guide! I'm not over the moon, because it took them several months, but at least it shows progress.
 
 ## Troubleshooting OpenSearch Resource/Backend Errors is Time Consuming
 Again, I wanted to set up OpenSearch so I could use location bounding-box queries. Amplify has a guide for [OpenSearch setup](https://docs.amplify.aws/react/build-a-backend/data/custom-business-logic/search-and-aggregate-queries/). This involves adding OS to `backend.ts` and hooking it up to your DB. I followed the steps to the end of step 3, and was working on the OSIS pipeline. This includes the log group and pipeline setup mentioned above. At this point, the `npx ampx sandbox` command (which creates a backend environment) takes a long time:
